@@ -1,12 +1,9 @@
 'use client';
-import RecordCard from "@/components/time-records/time-records-record-card-component";
+import RecordCard from "@/components/time-records/recordCardComponent";
 import { Box, Text } from "@chakra-ui/react";
 
 // `app/page.tsx` is the UI for the `/` URL
 export default function Page({ params }: any) {
-    const mockDataCollaborator = {
-        
-    } 
     return (
         <Box
             display={"flex"}

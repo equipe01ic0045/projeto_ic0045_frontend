@@ -1,10 +1,10 @@
 'use client';
 
-import ProjectsTableComponent from "@/components/projects";
+import ProjectsTableComponent from "@/components/projects/projectsTableComponent";
 import { Box, Button } from "@chakra-ui/react";
 
 // `app/page.tsx` is the UI for the `/` URL
-export default function Page() {
+export default function Projects() {
 
   const mockDataList = [
     {

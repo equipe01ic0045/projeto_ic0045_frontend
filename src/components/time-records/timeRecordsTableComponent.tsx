@@ -3,7 +3,7 @@
 import { Button, Table, TableCaption, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
 import Link from "next/link";
 
-export default function TimeRecordsTableComponent({projectList}:any){
+export default function TimeRecordsTable({projectList}:any){
 
     return (
         <TableContainer>
@@ -29,7 +29,7 @@ export default function TimeRecordsTableComponent({projectList}:any){
                                 <Td>{project.manager}</Td>
                                 <Td>{project.company}</Td>
                                 <Td><Button>info</Button></Td>
-                                <Td><Link href={`/time-records/project/${project.id}`}><Button>record time</Button></Link></Td>
+                                <Td><Link href={`time-records/project/${project.id}`}><Button>record time</Button></Link></Td>
                             </Tr>
                         )
                     })}
