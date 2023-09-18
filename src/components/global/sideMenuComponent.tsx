@@ -1,22 +1,23 @@
 'use client';
-import caseImg from '../../../public/icons/case_01.svg';
-import clockImg from '../../../public/icons/clock_01.svg';
-import { Box, Button, Image } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
+import { Icon } from "@chakra-ui/react";
+import {FiBriefcase} from 'react-icons/fi'
+import {FiClock} from 'react-icons/fi'
 import Link from "next/link";
 import React from "react";
 
 export default function SideMenuComponent() {
-    const menuCase = caseImg;
-    const menuClock = clockImg;
     const pages = [
         {
             id: 1,
             name: "Projects",
-            link: "projects"
+            link: "projects",
+            icon: FiBriefcase
         }, {
             id: 2,
             name: "Time Records",
-            link: "time-records"
+            link: "time-records",
+            icon: FiClock
         }
     ]
     return (
@@ -33,15 +34,24 @@ export default function SideMenuComponent() {
             {pages.map((item) => {
                 return <Link
                     key={item.id}
-                    href={`/${item.link}`}
+                    href={`/main/${item.link}`}
                 >
                     <Button
                         bg={"white"}
                         borderRadius={"5px"}
                         padding={"1em"}
-                        width={"150px"}
+                        display={"flex"}
+                        flexDirection={"row"}
+                        alignItems={"center"}
+                        justifyContent={"start"}
+                        gap={"0.5em"}
+                        width={"auto"}
+                        minWidth={"175px"}
                     >
-                        <Image src={menuCase}/>
+                        <Icon 
+                        width={"2em"}
+                        height={"2em"}
+                         as={item.icon} />
                         {item.name}
                     </Button>
                 </Link>

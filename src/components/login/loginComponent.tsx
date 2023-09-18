@@ -51,6 +51,8 @@ export default function LoginComponent() {
             width={"100%"}
         >
             <Text fontSize={'6xl'}>pontocerto.ic</Text>
+            <Text fontSize={'2xl'}>Bem Vindo, Entre !</Text>
+
 
             <Box 
             display={'flex'}

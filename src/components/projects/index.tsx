@@ -11,7 +11,6 @@ import {
     TableContainer,
     Button,
 } from '@chakra-ui/react'
-import { Head } from 'next/document'
 
 export default function ProjectsTableComponent({ projectList }: any) {
     return (

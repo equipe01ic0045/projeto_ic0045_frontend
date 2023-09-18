@@ -1,6 +1,5 @@
 'use client'; // chakra-ui components need this declaration to work
 import '../styles/global.css'; // css import from styles to work with normal element tags
-import SideMenuComponent from '@/components/global/sideMenuComponent';
 import { Box, ChakraProvider } from '@chakra-ui/react';
 
 // title and description tags shall not be used but export as a constant
