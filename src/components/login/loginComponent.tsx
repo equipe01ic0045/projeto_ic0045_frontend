@@ -26,15 +26,16 @@ export default function LoginComponent() {
         
         if(user.email == 'fake@mail.com' && user.password == '123456'){
             console.log('user authenticated')
-            router.push('main')
+            router.push('main/projects')
         }
         else {
             toast({
-                title: 'login failed',
+                title: 'login falhou',
                 description: "",
                 status: 'error',
                 duration: 3000,
                 isClosable: true,
+                position: "top-right"
               })
         }
 

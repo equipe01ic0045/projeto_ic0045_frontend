@@ -24,7 +24,7 @@ export default function Clock(props: any) {
     return (
         <Box>
             <Text
-                textColor={"white"}
+                // textColor={"white"}
                 fontSize={"2xl"}
             >
                 {date ?? ""}

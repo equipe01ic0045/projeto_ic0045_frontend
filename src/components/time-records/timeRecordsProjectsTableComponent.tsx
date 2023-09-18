@@ -1,13 +1,15 @@
 'use client';
-
+import { Icon } from "@chakra-ui/react";
+import { FiClock } from 'react-icons/fi';
+import { FiFileText } from 'react-icons/fi';
 import { Button, Table, TableCaption, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
 import Link from "next/link";
 
-export default function TimeRecordsProjectsTable({projectList}:any){
+export default function TimeRecordsProjectsTable({ projectList }: any) {
 
     return (
         <TableContainer
-        width={"100%"}
+            width={"100%"}
         >
             <Table
                 variant='simple'
@@ -18,8 +20,8 @@ export default function TimeRecordsProjectsTable({projectList}:any){
                         <Th textColor={"white"}>PROJECT NAME</Th>
                         <Th textColor={"white"}>MANAGER</Th>
                         <Th textColor={"white"}>COMPANY</Th>
+                        <Th textColor={"white"}>TIME RECORD</Th>
                         <Th textColor={"white"}>INFO</Th>
-                        <Th textColor={"white"}>RECORD TIME</Th>
                     </Tr>
                 </Thead>
                 <Tbody>
@@ -29,8 +31,20 @@ export default function TimeRecordsProjectsTable({projectList}:any){
                                 <Td><Button>{project.projectName}</Button></Td>
                                 <Td>{project.manager}</Td>
                                 <Td>{project.company}</Td>
-                                <Td><Button>info</Button></Td>
-                                <Td><Link href={`time-records/project/${project.id}`}><Button>record time</Button></Link></Td>
+                                <Td>
+                                    <Link href={`time-records/project/register/${project.id}`}>
+                                        <Button>
+                                            <Icon width={"2em"} height={"2em"} as={FiClock} />
+                                        </Button>
+                                    </Link>
+                                </Td>
+                                <Td>
+                                    <Link href={`time-records/project/info/${project.id}`}>
+                                        <Button>
+                                            <Icon width={"2em"} height={"2em"} as={FiFileText} />
+                                        </Button>
+                                    </Link>
+                                </Td>
                             </Tr>
                         )
                     })}

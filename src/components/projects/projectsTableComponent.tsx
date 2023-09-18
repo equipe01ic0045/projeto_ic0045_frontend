@@ -11,11 +11,13 @@ import {
     TableContainer,
     Button,
 } from '@chakra-ui/react'
+import { Icon } from "@chakra-ui/react";
+import { FiUser } from 'react-icons/fi';
 
 export default function ProjectsTableComponent({ projectList }: any) {
     return (
         <TableContainer
-        width={"100%"}
+            width={"100%"}
         >
             <Table
                 variant='simple'
@@ -36,7 +38,18 @@ export default function ProjectsTableComponent({ projectList }: any) {
                                 <Td><Button>{project.projectName}</Button></Td>
                                 <Td>{project.manager}</Td>
                                 <Td>{project.company}</Td>
-                                <Td><Button>{project.users}</Button></Td>
+                                <Td><Button 
+                                width={"auto"} 
+                                minWidth={"100px"}
+                                display="flex"
+                                flexDirection={"row"}
+                                alignItems={"center"}
+                                justifyContent={"space-between"}
+                                >{project.users}<Icon
+                                    width={"2em"}
+                                    height={"2em"}
+                                    as={FiUser}
+                                /></Button></Td>
                             </Tr>
                         )
                     })}

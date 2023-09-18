@@ -2,12 +2,10 @@
 import UserService from "@/services/userService";
 import { Box, Button, Text, Input, useToast } from "@chakra-ui/react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export default function RegistrationComponent() {
     const toast = useToast()
-    const router = useRouter()
     const [newUser, setNewUser] = useState(
         {
             email: '',
@@ -33,6 +31,7 @@ export default function RegistrationComponent() {
                 status: 'success',
                 duration: 3000,
                 isClosable: true,
+                position: "top-right"
               })
         }
         if(newUser.email != newUser.confirmEmail || newUser.password != newUser.confirmPassword){
@@ -42,6 +41,7 @@ export default function RegistrationComponent() {
                 status: 'error',
                 duration: 3000,
                 isClosable: true,
+                position: "top-right"
               })
         }
 

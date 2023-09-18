@@ -51,7 +51,8 @@ export default function SideMenuComponent() {
                         <Icon 
                         width={"2em"}
                         height={"2em"}
-                         as={item.icon} />
+                         as={item.icon}
+                         />
                         {item.name}
                     </Button>
                 </Link>
