@@ -1,6 +1,6 @@
 'use client';
 
-import TimeRecordsTableComponent from "@/components/time-records/timeRecordsTableComponent";
+import TimeRecordsTableComponent from "@/components/time-records/timeRecordsProjectsTableComponent";
 import { Box } from "@chakra-ui/react";
 
 // `app/page.tsx` is the UI for the `/` URL

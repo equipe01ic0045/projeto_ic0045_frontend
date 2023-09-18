@@ -14,12 +14,13 @@ import {
 
 export default function ProjectsTableComponent({ projectList }: any) {
     return (
-        <TableContainer>
+        <TableContainer
+        width={"100%"}
+        >
             <Table
                 variant='simple'
                 background={"gray.200"}
             >
-                <TableCaption>Projects List</TableCaption>
                 <Thead bg={"blueviolet"}>
                     <Tr>
                         <Th textColor={"white"}>PROJECT NAME</Th>

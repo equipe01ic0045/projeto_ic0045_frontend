@@ -44,10 +44,11 @@ export default function Projects() {
       alignItems={"start"}
       justifyContent={"center"}
       width={"100%"}
-      padding={"1em"}
+      padding={"2em"}
       gap={"10em"}
     >
-      <Button> 
+      <Button size={"lg"}
+      > 
         + NEW PROJECT
         </Button>
       <ProjectsTableComponent projectList={mockDataList}></ProjectsTableComponent>

@@ -3,15 +3,16 @@
 import { Button, Table, TableCaption, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
 import Link from "next/link";
 
-export default function TimeRecordsTable({projectList}:any){
+export default function TimeRecordsProjectsTable({projectList}:any){
 
     return (
-        <TableContainer>
+        <TableContainer
+        width={"100%"}
+        >
             <Table
                 variant='simple'
                 background={"gray.200"}
             >
-                <TableCaption>Projects List</TableCaption>
                 <Thead bg={"blueviolet"}>
                     <Tr>
                         <Th textColor={"white"}>PROJECT NAME</Th>
