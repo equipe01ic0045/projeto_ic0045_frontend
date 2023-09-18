@@ -68,7 +68,7 @@ export default function LoginComponent() {
                     onChange={inputHandler}
                 />
                 <Input
-                    placeholder="password"
+                    placeholder="senha"
                     type="password"
                     name="password"
                     value={user.password}
