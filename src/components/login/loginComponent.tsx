@@ -1,11 +1,12 @@
 'use client';
 import UserService from "@/services/userService";
-import { Box, Button, Text, Input } from "@chakra-ui/react";
+import { Box, Button, Text, Input, useToast } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export default function LoginComponent() {
+    const toast = useToast()
     const router = useRouter()
     const [user, setUser] = useState(
         {
@@ -25,7 +26,16 @@ export default function LoginComponent() {
         
         if(user.email == 'fake@mail.com' && user.password == '123456'){
             console.log('user authenticated')
-            router.push('time-records')
+            router.push('main')
+        }
+        else {
+            toast({
+                title: 'login failed',
+                description: "",
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+              })
         }
 
     }
@@ -49,12 +59,14 @@ export default function LoginComponent() {
             >
                 <Input
                     placeholder="email"
+                    type="email"
                     name="email"
                     value={user.email}
                     onChange={inputHandler}
                 />
                 <Input
                     placeholder="password"
+                    type="password"
                     name="password"
                     value={user.password}
                     onChange={inputHandler}

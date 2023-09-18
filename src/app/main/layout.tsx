@@ -1,5 +1,4 @@
-'use client'; // chakra-ui components need this declaration to work
-import '../styles/global.css'; // css import from styles to work with normal element tags
+'use client';
 import SideMenuComponent from '@/components/global/sideMenuComponent';
 import { Box, ChakraProvider } from '@chakra-ui/react';
 
@@ -25,7 +24,7 @@ export default function RootLayout({
       <body>
         <div className='root'>
         <ChakraProvider>
-            {/* <SideMenuComponent></SideMenuComponent> */}
+            <SideMenuComponent></SideMenuComponent>
             {children}
         </ChakraProvider>
         </div>

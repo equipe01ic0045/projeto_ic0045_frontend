@@ -1,9 +1,13 @@
 'use client';
-import { Box, Button } from "@chakra-ui/react";
+import caseImg from '../../../public/icons/case_01.svg';
+import clockImg from '../../../public/icons/clock_01.svg';
+import { Box, Button, Image } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 
 export default function SideMenuComponent() {
+    const menuCase = caseImg;
+    const menuClock = clockImg;
     const pages = [
         {
             id: 1,
@@ -13,10 +17,6 @@ export default function SideMenuComponent() {
             id: 2,
             name: "Time Records",
             link: "time-records"
-        }, {
-            id: 3,
-            name: "Justifications",
-            link: "justifications"
         }
     ]
     return (
@@ -39,8 +39,9 @@ export default function SideMenuComponent() {
                         bg={"white"}
                         borderRadius={"5px"}
                         padding={"1em"}
-                        width={"100px"}
+                        width={"150px"}
                     >
+                        <Image src={menuCase}/>
                         {item.name}
                     </Button>
                 </Link>

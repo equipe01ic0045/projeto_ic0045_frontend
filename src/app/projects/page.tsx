@@ -1,6 +1,6 @@
 'use client';
 
-import ProjectsTableComponent from "@/components/projects/projects-table-component";
+import ProjectsTableComponent from "@/components/projects";
 import { Box, Button } from "@chakra-ui/react";
 
 // `app/page.tsx` is the UI for the `/` URL

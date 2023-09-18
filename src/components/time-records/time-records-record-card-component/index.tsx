@@ -1,7 +1,7 @@
 'use client';
 
 import { Button, Box, Text } from "@chakra-ui/react";
-import Clock from "../time-records-clock-component";
+import Clock from "..";
 import { useState } from "react";
 
 export default function RecordCard() {
