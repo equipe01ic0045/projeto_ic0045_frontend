@@ -3,13 +3,12 @@ import {
     Table,
     Thead,
     Tbody,
-    Tfoot,
     Tr,
     Th,
     Td,
-    TableCaption,
     TableContainer,
     Button,
+    Link,
 } from '@chakra-ui/react'
 import { Icon } from "@chakra-ui/react";
 import { FiUser } from 'react-icons/fi';
@@ -35,21 +34,25 @@ export default function ProjectsTableComponent({ projectList }: any) {
                     {projectList.map((project: any) => {
                         return (
                             <Tr key={project.id}>
-                                <Td><Button>{project.projectName}</Button></Td>
+                                <Td>
+                                    <Link href={`/main/projects/info/${project.id}`}>
+                                        <Button>{project.projectName}</Button>
+                                    </Link>
+                                </Td>
                                 <Td>{project.manager}</Td>
                                 <Td>{project.company}</Td>
-                                <Td><Button 
-                                width={"auto"} 
-                                minWidth={"100px"}
-                                display="flex"
-                                flexDirection={"row"}
-                                alignItems={"center"}
-                                justifyContent={"space-between"}
+                                <Td><Button
+                                    width={"auto"}
+                                    minWidth={"100px"}
+                                    display="flex"
+                                    flexDirection={"row"}
+                                    alignItems={"center"}
+                                    justifyContent={"space-between"}
                                 >{project.users}<Icon
-                                    width={"2em"}
-                                    height={"2em"}
-                                    as={FiUser}
-                                /></Button></Td>
+                                        width={"2em"}
+                                        height={"2em"}
+                                        as={FiUser}
+                                    /></Button></Td>
                             </Tr>
                         )
                     })}
