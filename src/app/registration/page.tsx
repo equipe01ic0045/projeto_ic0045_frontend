@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import RegistrationComponent from "@/components/registration/registrationComponent"
 // page ui generated from the url
 

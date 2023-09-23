@@ -4,6 +4,7 @@ import { Box, Button, Text, Input, useToast } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { getCookie, setCookie, getCookies } from 'cookies-next';
 
 export default function LoginComponent() {
     const toast = useToast()
@@ -23,21 +24,19 @@ export default function LoginComponent() {
     }
 
     function loginHandler() {
-        
-        if(user.email == 'fake@mail.com' && user.password == '123456'){
-            console.log('user authenticated')
-            router.push('main/projects')
-        }
-        else {
-            toast({
-                title: 'login falhou',
-                description: "",
-                status: 'error',
-                duration: 3000,
-                isClosable: true,
-                position: "top-right"
-              })
-        }
+       
+        userService.loginUser(user).then(
+            (response)=>{ 
+                // console.log()
+                console.log(response)
+                console.log(response.status)
+                console.log('cookezera : ',getCookies())
+                console.log('set headers : ', response.headers['set-cookie'])
+                // console.log('next header :', cookies().getAll() )
+                // console.log('document cookie : ', document.cookie)
+            })
+
+            // axios get projects
 
     }
 
