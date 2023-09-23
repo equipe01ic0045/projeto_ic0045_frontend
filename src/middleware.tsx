@@ -1,17 +1,27 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+// import { NextResponse, NextRequest } from 'next/server'
 
-import { getCookie, setCookie, getCookies } from 'cookies-next';
- 
-// This function can be marked `async` if using `await` inside
-export default function middleware(request: NextRequest) {
-  // return NextResponse.redirect(new URL('/home', request.url))
-  console.log('middleware')
-  console.log('cookezera : ',getCookies())
-  return NextResponse.next()
+import { NextRequest, NextResponse } from "next/server"
+
+export default function middleware(request: NextRequest, response : NextResponse) {
+
+  const path = request.nextUrl.pathname // "/route/structure"
+  const cookies =  request.cookies.get('token')
+
+    if(cookies){
+      return NextResponse.next()
+    }
+    if(!cookies){
+      return NextResponse.redirect('http://localhost:4400/')
+    }
 }
- 
-// See "Matching Paths" below to learn more
-// export const config = {
-//   matcher: '/about/:path*',
+
+
+// export default function middleware(request: NextRequest){
+//   console.log('middleware')
+//   console.log('url :',request.url)
+//   console.log('next url :', request.nextUrl)
 // }
+
+export const config = {
+  matcher : ['/main/:path*']
+}

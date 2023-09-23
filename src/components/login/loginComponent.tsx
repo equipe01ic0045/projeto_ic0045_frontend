@@ -4,7 +4,7 @@ import { Box, Button, Text, Input, useToast } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { getCookie, setCookie, getCookies } from 'cookies-next';
+import cookiesNext from 'cookies-next';
 
 export default function LoginComponent() {
     const toast = useToast()
@@ -25,18 +25,22 @@ export default function LoginComponent() {
 
     function loginHandler() {
        
-        userService.loginUser(user).then(
+        userService.loginUser(user)
+        .then(
             (response)=>{ 
-                // console.log()
-                console.log(response)
-                console.log(response.status)
-                console.log('cookezera : ',getCookies())
-                console.log('set headers : ', response.headers['set-cookie'])
-                // console.log('next header :', cookies().getAll() )
-                // console.log('document cookie : ', document.cookie)
+                router.push("/main/projects")
             })
-
-            // axios get projects
+        .catch((error)=>{
+            console.log(error)
+            toast({
+                title: 'login invalido',
+                description: "",
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+                position: "top-right"
+              })
+        })
 
     }
 
