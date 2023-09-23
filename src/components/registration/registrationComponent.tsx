@@ -2,9 +2,11 @@
 import UserService from "@/services/userService";
 import { Box, Button, Text, Input, useToast } from "@chakra-ui/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export default function RegistrationComponent() {
+    const router = useRouter()
     const toast = useToast()
     const [newUser, setNewUser] = useState(
         {
@@ -25,18 +27,35 @@ export default function RegistrationComponent() {
     function registerHandler() {
         
         if(newUser.email == newUser.confirmEmail && newUser.password == newUser.confirmPassword){
-            toast({
-                title: 'registro completo',
-                description: "",
-                status: 'success',
-                duration: 3000,
-                isClosable: true,
-                position: "top-right"
-              })
+
+            userService.registerUser(newUser)
+            .then((response)=>{
+                console.log(response.status)
+                toast({
+                    title: 'registro completo',
+                    description: "",
+                    status: 'success',
+                    duration: 3000,
+                    isClosable: true,
+                    position: "top-right"
+                  })
+                  router.push('/')
+            })
+            .catch((error)=>{
+                console.log(error.status)
+                toast({
+                    title: 'falha no registro',
+                    description: "",
+                    status: 'error',
+                    duration: 3000,
+                    isClosable: true,
+                    position: "top-right"
+                  })
+            })
         }
         if(newUser.email != newUser.confirmEmail || newUser.password != newUser.confirmPassword){
             toast({
-                title: 'falha no registro',
+                title: 'dados invalidos',
                 description: "",
                 status: 'error',
                 duration: 3000,
